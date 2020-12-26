@@ -46,4 +46,12 @@ microDot.ShowString("0     ");
 Thread.Sleep(250);
 microDot.ClearAll();
 Thread.Sleep(250);
+microDot.ShowString("123456");
+Thread.Sleep(250);
+microDot.ShowCharacterAtPosition(5, '7'); // Display now shows: 723456
+Thread.Sleep(250);
+microDot.ShowCharacterAtPosition(0, '9'); // Display now shows: 723459microDot.ClearAll();
+Thread.Sleep(250);
+microDot.ClearAll();
+Thread.Sleep(250);
 microDot.Dispose();
