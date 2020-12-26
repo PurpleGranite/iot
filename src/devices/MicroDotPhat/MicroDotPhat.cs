@@ -46,8 +46,8 @@ namespace Iot.Device.MicroDotPhat
         /// <summary>
         /// Display a character at the specified position (5-0, Left-Right)
         /// </summary>
-        /// <param name="position"></param>
-        /// <param name="character"></param>
+        /// <param name="position">Display position to set.</param>
+        /// <param name="character">Character to display.</param>
         public void ShowCharacterAtPosition(int position, char character)
         {
             switch (position)
@@ -76,7 +76,7 @@ namespace Iot.Device.MicroDotPhat
         /// <summary>
         /// Display a specific string, must be exactly 6 characters long.
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">String to display, must be exactly 6 characters long.</param>
         public void ShowString(string value)
         {
             if (value.Length != 6)

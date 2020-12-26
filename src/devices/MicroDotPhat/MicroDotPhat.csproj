@@ -11,6 +11,7 @@
     <Compile Include="*.cs" />
     <None Include="README.md" />
     <ProjectReference Include="$(MainLibraryPath)System.Device.Gpio.csproj" />
+    <ProjectReference Include="..\IS31FL3730\IS31FL3730.csproj" />
   </ItemGroup>
 
 </Project>
