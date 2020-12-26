@@ -25,6 +25,7 @@ namespace Iot.Device.MicroDotPhat
         /// </summary>
         public MicroDotPhat()
         {
+            // Fixed configuration settings for the LED Matrix Controllers
             IS31FL3730.DriverConfiguration configuration = new DriverConfiguration()
             {
                 IsShutdown = false,
@@ -34,10 +35,12 @@ namespace Iot.Device.MicroDotPhat
                 DriveStrength = DriveStrength.Drive45ma
             };
 
+            // The three IS31FL3730 LED Matrix Controllers are at fixed addresses on this pHAT
             _matrix01Device = I2cDevice.Create(new I2cConnectionSettings(1, IS31FL3730.IS31FL3730.DefaultI2cAddress));
             _matrix23Device = I2cDevice.Create(new I2cConnectionSettings(1, IS31FL3730.IS31FL3730.DefaultI2cAddress + 1));
             _matrix45Device = I2cDevice.Create(new I2cConnectionSettings(1, IS31FL3730.IS31FL3730.DefaultI2cAddress + 2));
 
+            // Use the same, standardised, configuration for each LED Matrix Controller
             _matrix01 = new IS31FL3730.IS31FL3730(_matrix01Device, configuration);
             _matrix23 = new IS31FL3730.IS31FL3730(_matrix23Device, configuration);
             _matrix45 = new IS31FL3730.IS31FL3730(_matrix45Device, configuration);
