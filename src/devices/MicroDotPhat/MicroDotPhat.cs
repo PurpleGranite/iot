@@ -53,22 +53,22 @@ namespace Iot.Device.MicroDotPhat
             switch (position)
             {
                 case 0:
-                    _matrix01.SetMatrix(MatrixMode.Matrix1Only, DotFont.GetCharacter(character));
+                    _matrix01.SetMatrix(MatrixMode.Matrix1Only, RotateCharacter(DotFont.GetCharacter(character)));
                     break;
                 case 1:
-                    _matrix01.SetMatrix(MatrixMode.Matrix2Only, RotateCharacter(DotFont.GetCharacter(character)));
+                    _matrix01.SetMatrix(MatrixMode.Matrix2Only, DotFont.GetCharacter(character));
                     break;
                 case 2:
-                    _matrix23.SetMatrix(MatrixMode.Matrix1Only, DotFont.GetCharacter(character));
+                    _matrix23.SetMatrix(MatrixMode.Matrix1Only, RotateCharacter(DotFont.GetCharacter(character)));
                     break;
                 case 3:
-                    _matrix23.SetMatrix(MatrixMode.Matrix2Only, RotateCharacter(DotFont.GetCharacter(character)));
+                    _matrix23.SetMatrix(MatrixMode.Matrix2Only, DotFont.GetCharacter(character));
                     break;
                 case 4:
-                    _matrix45.SetMatrix(MatrixMode.Matrix1Only, DotFont.GetCharacter(character));
+                    _matrix45.SetMatrix(MatrixMode.Matrix1Only, RotateCharacter(DotFont.GetCharacter(character)));
                     break;
                 case 5:
-                    _matrix45.SetMatrix(MatrixMode.Matrix2Only, RotateCharacter(DotFont.GetCharacter(character)));
+                    _matrix45.SetMatrix(MatrixMode.Matrix2Only, DotFont.GetCharacter(character));
                     break;
             }
         }
@@ -84,11 +84,11 @@ namespace Iot.Device.MicroDotPhat
                 throw new ArgumentOutOfRangeException(nameof(value), "Value supplied must be exactly 6 characters long.");
             }
 
-            int position = 0;
+            int position = 5;
             foreach (char character in value.ToCharArray())
             {
                 ShowCharacterAtPosition(position, character);
-                position++;
+                position--;
             }
         }
 
